@@ -72,6 +72,9 @@ div.gridItem{
     background-color: aqua;
 }
 
+.red{
+    background-color: red;
+}
 #buttonPlay:active{
     background-color: gray
 }
