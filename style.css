@@ -72,6 +72,9 @@ div.gridItem{
     background-color: aqua;
 }
 
+.hidden{
+    pointer-events: none;
+}
 .red{
     background-color: red;
 }

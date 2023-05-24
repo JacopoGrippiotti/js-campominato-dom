@@ -40,6 +40,8 @@ function createDivElement(tagname,classname,content) {
     return divElement
 }
 
+let gameOver = false
+
 button.addEventListener('click', function(){
 
     const gridContainer = document.getElementById('gridContainer')
@@ -51,6 +53,7 @@ button.addEventListener('click', function(){
     gridContainer.innerHTML = ""
 
     let attempts = 0
+    
     
     for (let i = 1; i < 101; i++ ) {
 
@@ -64,26 +67,42 @@ button.addEventListener('click', function(){
 
                 attempts += 1
                 gridItem.classList.toggle('aqua')
-    
+
                 console.log('per ora sei salvo vedi di non cliccare una bomba', i)
-                console.log(attempts)
+                console.log('attempts',attempts)
             }) 
         
         }else{
-
             gridItem.addEventListener('click', function(){
 
                 gridItem.classList.toggle('red')
 
-                console.log('eh niente sei finito su una bomba e adesso? be adesso sei morto non ci sono altre cose da dire ciao ciao', i)
+                gameOver = true
+                
+                if (gameOver === true){
+
+                    const gridElements = document.querySelectorAll('div.gridItem')
+
+                    for(let i = 0; i < gridElements.length; i++){
+
+                        gridElements[i].classList.add('hidden')
+                    }
+        }
+                console.log('eh niente sei finito su una bomba e adesso? be adesso sei morto non ci sono altre cose da dire ciao ciao game over', i)
+                console.log('attempts',attempts)
             })
         }
         
         
+        
         gridContainer.appendChild(gridItem)
-    
+        
+        
     }
 })
+
+
+
 
 
 
