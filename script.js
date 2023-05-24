@@ -49,6 +49,8 @@ button.addEventListener('click', function(){
     gridContainer.classList.add('gridBorder')
     
     const bombList = randomNumbersArray(100, 1, 16)
+
+    console.log(bombList)
     
     gridContainer.innerHTML = ""
 
@@ -68,6 +70,18 @@ button.addEventListener('click', function(){
                 attempts += 1
                 gridItem.classList.toggle('aqua')
 
+                if(attempts === 84){
+
+                    const gridElements = document.querySelectorAll('div.gridItem')
+
+                    for(let i = 0; i < gridElements.length; i++){
+
+                        gridElements[i].classList.add('hidden')
+                    }
+
+                    console.log('hai vinto')
+                }
+
                 console.log('per ora sei salvo vedi di non cliccare una bomba', i)
                 console.log('attempts',attempts)
             }) 
@@ -79,7 +93,7 @@ button.addEventListener('click', function(){
 
                 gameOver = true
                 
-                if (gameOver === true){
+                if (gameOver === true ){
 
                     const gridElements = document.querySelectorAll('div.gridItem')
 
@@ -87,7 +101,8 @@ button.addEventListener('click', function(){
 
                         gridElements[i].classList.add('hidden')
                     }
-        }
+                }
+
                 console.log('eh niente sei finito su una bomba e adesso? be adesso sei morto non ci sono altre cose da dire ciao ciao game over', i)
                 console.log('attempts',attempts)
             })
