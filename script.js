@@ -50,25 +50,32 @@ button.addEventListener('click', function(){
     
     gridContainer.innerHTML = ""
 
+    let attempts = 0
+    
     for (let i = 1; i < 101; i++ ) {
 
         
-        
         let gridItem = createDivElement('div', 'gridItem', i)
 
+        
         if(!bombList.includes(i)){
-
+            
             gridItem.addEventListener('click' , function (){
-    
+
+                attempts += 1
                 gridItem.classList.toggle('aqua')
     
-                console.log(i)
+                console.log('per ora sei salvo vedi di non cliccare una bomba', i)
+                console.log(attempts)
             }) 
+        
         }else{
 
             gridItem.addEventListener('click', function(){
 
                 gridItem.classList.toggle('red')
+
+                console.log('eh niente sei finito su una bomba e adesso? be adesso sei morto non ci sono altre cose da dire ciao ciao', i)
             })
         }
         
